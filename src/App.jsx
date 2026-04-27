@@ -301,7 +301,7 @@ function Hero() {
               <div className="absolute inset-0 bg-neon/10 rounded-3xl blur-3xl scale-90" />
               <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }} className="relative" style={{ transformStyle: 'preserve-3d' }}>
                 <div className="relative w-72 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[480px] rounded-3xl overflow-hidden border border-white/10 neon-border">
-                  <img src="public/hero_image.png" alt="Nimra - Fitness Coach" className="w-full h-full object-cover" />
+                  <img src="/hero_image.png" alt="Nimra - Fitness Coach" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6 glass-card rounded-2xl p-4">
                     <div className="flex items-center gap-3">
@@ -375,11 +375,7 @@ function About() {
             <div className="perspective-container max-w-[520px]">
               
               <TiltCard className="relative rounded-3xl overflow-hidden border border-white/10 neon-border w-full">
-                <img
-                  src="public/hero_image.png"
-                  alt="About Nimra"
-                  className="w-full h-[400px] md:h-[500px] object-cover"
-                />
+               <img src="/hero_image.png" alt="About Nimra" className="w-full h-[400px] md:h-[500px] object-cover" />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/20 to-transparent" />
 
