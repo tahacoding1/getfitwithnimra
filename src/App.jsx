@@ -16,10 +16,6 @@ import {
   X,
   ChevronUp,
   MessageCircle,
-  Award,
-  Shield,
-  Trophy,
-  GraduationCap,
 } from 'lucide-react';
 
 // ===================== ANIMATION VARIANTS =====================
@@ -489,131 +485,6 @@ function About() {
           </motion.div>
 
         </div>
-      </div>
-    </section>
-  );
-}
-
-// ===================== CERTIFICATIONS & ACHIEVEMENTS =====================
-
-const certifications = [
-  {
-    icon: <Trophy className="text-2xl" />,
-    name: 'Top Tier Fitness Expert',
-    org: 'Body Evolution',
-    desc: 'Awarded for exceptional training results and client transformations',
-    type: 'award',
-  },
-  {
-    icon: <GraduationCap className="text-2xl" />,
-    name: 'Internationally Certified',
-    org: 'ISSA — International Sports Sciences Association',
-    desc: 'Certified Personal Trainer & Fitness Coach',
-    type: 'cert',
-  },
-  {
-    icon: <Shield className="text-2xl" />,
-    name: 'Science-Based Training',
-    org: 'NASM — National Academy of Sports Medicine',
-    desc: 'Certified in corrective exercise and performance training',
-    type: 'cert',
-  },
-  {
-    icon: <Award className="text-2xl" />,
-    name: 'Precision Nutrition Coach',
-    org: 'Precision Nutrition Level 1',
-    desc: 'Certified nutrition coach for body composition goals',
-    type: 'cert',
-  },
-  {
-    icon: <Sparkles className="text-2xl" />,
-    name: 'Elite Performance Coach',
-    org: 'ACE — American Council on Exercise',
-    desc: 'Advanced health & fitness specialist certification',
-    type: 'cert',
-  },
-];
-
-function Certifications() {
-  const [ref, isInView] = useSectionInView();
-
-  return (
-    <section className="py-24 md:py-32 relative">
-      <div className="absolute inset-0 bg-dark-900" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon/20 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon/20 to-transparent" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <SectionHeader
-          subtitle="Credentials"
-          title="Certifications & Achievements"
-          description="Backed by world-renowned fitness organizations and recognized for delivering outstanding results."
-        />
-
-        {/* Award Card - Featured */}
-        <motion.div
-          ref={ref}
-          variants={fadeInUp}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="mb-10"
-        >
-          <div className="relative rounded-2xl overflow-hidden border-2 border-neon/30 neon-border">
-            <div className="absolute inset-0 bg-gradient-to-r from-neon/10 via-transparent to-neon/5" />
-            <div className="relative p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10">
-              <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-neon/20 border border-neon/30 flex items-center justify-center text-neon animate-pulse-glow flex-shrink-0">
-                <Trophy className="text-3xl md:text-4xl" />
-              </div>
-              <div className="text-center md:text-left">
-                <div className="inline-block text-neon text-[10px] font-bold tracking-[0.3em] uppercase mb-2 px-3 py-1 bg-neon/10 rounded-full border border-neon/20">
-                  ★ Special Recognition
-                </div>
-                <h3 className="text-white text-xl md:text-2xl font-bold mb-2">Top Tier Fitness Expert Award</h3>
-                <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
-                  Honored by <span className="text-neon font-semibold">Body Evolution</span> for consistently delivering exceptional client transformations, maintaining the highest training standards, and being one of the most sought-after trainers at the facility.
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Certification Logos - Horizontal Scroll */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4"
-        >
-          {certifications.filter(c => c.type === 'cert').map((cert, index) => (
-            <motion.div key={index} variants={fadeInUp}>
-              <TiltCard className="h-full">
-                <div className="glass-card rounded-2xl p-6 border border-white/5 hover:border-neon/20 transition-all duration-500 h-full flex flex-col items-center text-center group cursor-pointer">
-                  <div className="w-14 h-14 rounded-xl bg-neon/10 border border-neon/20 flex items-center justify-center text-neon mb-4 group-hover:bg-neon/20 group-hover:shadow-lg group-hover:shadow-neon/20 transition-all duration-500">
-                    {cert.icon}
-                  </div>
-                  <h4 className="text-white font-bold text-sm mb-1 group-hover:text-neon transition-colors duration-300">{cert.name}</h4>
-                  <p className="text-neon/70 text-[11px] font-semibold uppercase tracking-wider mb-2">{cert.org}</p>
-                  <p className="text-neutral-500 text-xs leading-relaxed">{cert.desc}</p>
-                </div>
-              </TiltCard>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Trust bar */}
-        <motion.div variants={fadeInUp} initial="hidden" animate={isInView ? 'visible' : 'hidden'} className="mt-12 text-center">
-          <p className="text-neutral-600 text-xs uppercase tracking-widest mb-4">Trusted & Certified By</p>
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
-            {['ISSA', 'NASM', 'ACE', 'Precision Nutrition', 'Body Evolution'].map((name) => (
-              <div key={name} className="flex items-center gap-2 opacity-40 hover:opacity-80 transition-opacity duration-300">
-                <div className="w-6 h-6 rounded bg-white/10 flex items-center justify-center">
-                  <Shield className="text-white text-xs" />
-                </div>
-                <span className="text-neutral-400 text-xs font-bold tracking-wider uppercase">{name}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
@@ -1311,7 +1182,6 @@ export default function App() {
       <Navbar />
       <Hero />
       <About />
-      <Certifications />
       <Services />
       <Testimonials />
       <Community />
